@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meet at the Park</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.png">
+<meta name="theme-color" content="#2b1740">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header><h1>Meet at the Park</h1><div class="controls"><button id="mute">🔊</button></div></header>
+    <main>
+      <section class="left">
+        <div class="menu">
+          <label>Choose character:</label>
+          <select id="charSelect"><option value="boy">Boy</option><option value="girl">Girl</option></select>
+          <button id="startBtn">Start Level 1</button>
+          <div id="levelInfo">Level: <span id="levelNum">1</span></div>
+        </div>
+      </section>
+      <section class="game">
+        <canvas id="gameCanvas" width="900" height="480" aria-label="Platformer game"></canvas>
+        <div class="hud">Score: <span id="score">0</span> Lives: <span id="lives">3</span></div>
+      </section>
+    </main>
+    <footer><small>Progress through levels; each level adds obstacles. Reach the other character to win the level.</small></footer>
+  </div>
+
+<audio id="bg" src="assets/audio/bg_loop.wav" loop preload="auto"></audio>
+<audio id="sJump" src="assets/audio/jump.wav" preload="auto"></audio>
+<audio id="sWin" src="assets/audio/win.wav" preload="auto"></audio>
+<audio id="sHit" src="assets/audio/hit.wav" preload="auto"></audio>
+
+<script src="app.js"></script>
+<script> if('serviceWorker' in navigator) window.addEventListener('load', ()=> navigator.serviceWorker.register('sw.js')); </script>
+</body>
+</html>
